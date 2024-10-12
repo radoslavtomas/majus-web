@@ -11,10 +11,33 @@ export default {
     ],
 
     theme: {
+        screens: {
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px'
+        },
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors: {
+                'sand-light': '#f4ece6',
+                'sand-dark': '#e6dace',
+                'sand-darkest': '#ccad8e'
             },
+            fontFamily: {
+                'sans': ["Cardo", "Arial", ...defaultTheme.fontFamily.sans],
+                'mono': ['Source Code Pro', 'monospace']
+            },
+            cursor: {
+                help: 'help',
+                crosshair: 'crosshair',
+                'zoom-in': 'zoom-in',
+            }
+        },
+    },
+
+    variants: {
+        extend: {
+            borderWidth: ['hover', 'focus'],
         },
     },
 

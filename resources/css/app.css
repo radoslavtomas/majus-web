@@ -1,3 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*FONTS*/
+@import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap");
+/*@import "./../node_modules/@fortawesome/fontawesome-free/css/all.css";*/
+
+/*TAILWIND*/
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./_base.css";
+
+.papers {
+    @apply py-2 mb-2 border-b border-gray-300;
+
+    li {
+        @apply leading-6;
+    }
+}
+
+
+small.error {
+    @apply text-xs text-red-400;
+}
+
+input.error,
+textarea.error {
+    @apply border border-red-400;
+}
+
+input.valid,
+textarea.valid {
+    @apply border border-green-400;
+}
