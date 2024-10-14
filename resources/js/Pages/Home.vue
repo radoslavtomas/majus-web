@@ -1,37 +1,11 @@
 <script setup>
-
+import {Head} from '@inertiajs/vue3'
+import MainLayout from '@/Layouts/MainLayout.vue'
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col" aria-label="Content" style="font-family: 'Cardo', sans-serif"><header class="text-white bg-gray-300">
-        <div class="container mx-auto px-2 py-4 flex justify-between items-center relative">
-            <div class="flex justify-start items-center">
-                <span class="mr-3 h-4 w-4 bg-pink-700 rounded-tr rounded-bl"></span>
-                <a href="/" class="py-2 text-gray-700 hover:text-gray-800">MÁRIA ŽUFFOVÁ</a>
-            </div>
-
-            <div>
-                <nav :class="{ 'w-full fixed inset-y-0 inset-x-0 flex justify-end': false }">
-                    <ul class="list-none my-0 pl-0 flex items-center" :class="{ 'bg-gray-800 opacity-90 h-full w-full flex-col justify-start':false }">
-                        <div class="block lg:hidden w-full text-right p-4 mb-8">
-                            <i class="fa fa-2x cursor-pointer fa-times"></i>
-                        </div><li class="px-4 py-2 m-0 mb-2 lg:m-0 rounded hover:bg-gray-400">
-                        <a href="/about" class="text-white hover:text-white lg:text-gray-700 lg:hover:text-gray-800" title="More about us" >About</a>
-                    </li><li class="px-4 py-2 m-0 mb-2 lg:m-0 rounded hover:bg-gray-400">
-                        <a href="/research" class="text-white hover:text-white lg:text-gray-700 lg:hover:text-gray-800" title="Research" >Research</a>
-                    </li><li class="px-4 py-2 m-0 mb-2 lg:m-0 rounded hover:bg-gray-400">
-                        <a href="/engagement" class="text-white hover:text-white lg:text-gray-700 lg:hover:text-gray-800" title="Public engagement" >Public engagement</a>
-                    </li><li class="px-4 py-2 m-0 mb-2 lg:m-0 rounded hover:bg-gray-400">
-                        <a href="/teaching" class="text-white hover:text-white lg:text-gray-700 lg:hover:text-gray-800" title="Teaching" >Teaching</a>
-                    </li><li class="px-4 py-2 m-0 mb-2 lg:m-0 rounded hover:bg-gray-400">
-                        <a href="/contact" class="text-white hover:text-white lg:text-gray-700 lg:hover:text-gray-800" title="Contact us" >Contact</a>
-                    </li></ul>
-                </nav>
-            </div>
-
-            <i class="block text-gray-700 lg:hidden cursor-pointer fa fa-lg fa-bars"></i>
-        </div>
-    </header><main class="flex-grow flex flex-col">
+    <MainLayout>
+        <Head title="Home" />
         <div class="container mx-auto px-2 py-4 flex-grow flex items-center justify-center">
 
             <div class="flex justify-center items-center flex-col md:flex-row md:mb-0 lg:justify-center">
@@ -77,18 +51,8 @@
                     </p>
                 </section>
             </div>
-
         </div>
-    </main>
-    </div><footer class="bg-gray-600 text-white">
-    <div class="container mx-auto px-2 py-4 text-sm flex justify-between items-center">
-        <div>
-            &copy; Mária Žuffová
-        </div>
-
-        <p>Political Science </p>
-    </div>
-</footer>
+    </MainLayout>
 </template>
 
 <style scoped>

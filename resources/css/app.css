@@ -1,6 +1,6 @@
 /*FONTS*/
 @import url("https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap");
-/*@import "./../node_modules/@fortawesome/fontawesome-free/css/all.css";*/
+@import "./../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 /*TAILWIND*/
 @import "tailwindcss/base";
