@@ -9,6 +9,16 @@
 
 @import "./_base.css";
 
+.fit-screen {
+    min-height: calc(100vh - 136px);
+}
+
+.hero-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
 .papers {
     @apply py-2 mb-2 border-b border-gray-300;
 

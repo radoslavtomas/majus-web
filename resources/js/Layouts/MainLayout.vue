@@ -1,5 +1,4 @@
 <script setup>
-
 import TheHeader from '@/Components/TheHeader.vue'
 import TheFooter from '@/Components/TheFooter.vue'
 </script>
@@ -8,7 +7,7 @@ import TheFooter from '@/Components/TheFooter.vue'
     <div class="min-h-screen flex flex-col" aria-label="Content" style="font-family: 'Cardo', sans-serif">
         <the-header />
 
-        <main>
+        <main class="fit-screen">
             <slot/>
         </main>
 
