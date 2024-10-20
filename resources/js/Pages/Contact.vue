@@ -8,6 +8,8 @@ import useVuelidate from '@vuelidate/core'
 import { email, maxLength, minLength, required } from '@vuelidate/validators'
 import { computed, reactive } from 'vue'
 
+const props = defineProps({ page: Object })
+
 let form = reactive({
     name: '',
     email: '',
@@ -41,8 +43,8 @@ const handleForm = async () => {
 
 <template>
     <MainLayout>
-        <Head title="Contact" />
-        <page-layout title="Contact" image="/img/stubnianske-teplice.jpeg">
+        <Head :title="page.title" />
+        <page-layout :title="page.title" :image="page.image">
             <div class="text-center mb-6">
                 <social-links/>
             </div>
@@ -55,6 +57,9 @@ const handleForm = async () => {
                             type="text"
                             id="name"
                             name="name"
+                            :class="v$.name.$errors.length ?
+                            'border-red-500 focus:border-red-300 focus:ring focus:ring-red-200 focus:ring-opacity-50':
+                            'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'"
                             placeholder="Enter your name"
                             v-model.trim="form.name"
                         >
@@ -72,6 +77,9 @@ const handleForm = async () => {
                             type="email"
                             id="email"
                             name="email"
+                            :class="v$.email.$errors.length ?
+                            'border-red-500 focus:border-red-300 focus:ring focus:ring-red-200 focus:ring-opacity-50':
+                            'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'"
                             placeholder="Enter your email"
                             v-model.trim="form.email"
                         >
@@ -89,6 +97,9 @@ const handleForm = async () => {
                             id="message"
                             rows="5"
                             name="message"
+                            :class="v$.message.$errors.length ?
+                            'border-red-500 focus:border-red-300 focus:ring focus:ring-red-200 focus:ring-opacity-50':
+                            'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'"
                             placeholder="Enter your message"
                             v-model.trim="form.message">
                         </textarea>

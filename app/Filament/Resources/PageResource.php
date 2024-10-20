@@ -24,7 +24,6 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('image')
-                    ->required()
                     ->image(),
                 Forms\Components\TextInput::make('key')
                     ->required(),

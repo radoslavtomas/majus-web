@@ -2,6 +2,8 @@
 import {Head} from '@inertiajs/vue3'
 import MainLayout from '@/Layouts/MainLayout.vue'
 import PageLayout from '@/Layouts/PageLayout.vue'
+
+const props = defineProps({ page: Object })
 </script>
 
 <template>

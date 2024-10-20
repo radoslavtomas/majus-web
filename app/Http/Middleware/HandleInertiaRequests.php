@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -34,6 +37,33 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'user' => function () {
+                return $this->getUserInfo();
+            },
+            'settings' => function () {
+                return $this->getSettings();
+            }
         ];
+    }
+
+    private function getUserInfo()
+    {
+        return User::where('email', 'bulkova.maria@gmail.com')->first();
+    }
+
+    private function getSettings()
+    {
+        return $this->getSettingsAsKeyValuePairs(Setting::all());
+    }
+
+    private function getSettingsAsKeyValuePairs($settings): array
+    {
+        $data = [];
+
+        foreach ($settings as $item) {
+            $data[$item['key']] = $item['value'];
+        }
+
+        return $data;
     }
 }

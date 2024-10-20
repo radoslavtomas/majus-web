@@ -14,7 +14,7 @@ defineProps({
 <template>
     <article class="container mx-auto px-2 py-8">
         <div v-if="image"
-             class="hero-image h-32 sm:h-48 lg:h-56 px-8 w-full md:w-4/5 mx-auto"
+             class="hero-image h-48 sm:h-48 lg:h-72 px-8 w-full md:w-4/5 mx-auto"
              :style="{ backgroundImage: 'url(' + `${image}` + ')' }">
         </div>
 

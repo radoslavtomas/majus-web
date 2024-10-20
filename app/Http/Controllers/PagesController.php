@@ -2,38 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Page;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Home');
+        $page = Page::where('key', 'home')->firstOrFail();
+
+        return Inertia::render('Home', [
+            'page' => $page
+        ]);
     }
 
     public function about()
     {
-        return Inertia::render('About');
+        return $this->returnGenericPage();
     }
 
     public function research()
     {
-        return Inertia::render('Research');
+        return $this->returnGenericPage();
     }
 
     public function engagement()
     {
-        return Inertia::render('Engagement');
+        return $this->returnGenericPage();
     }
 
     public function teaching()
     {
-        return Inertia::render('Teaching');
+        return $this->returnGenericPage();
     }
 
     public function contact()
     {
-        return Inertia::render('Contact');
+        $pageKey = Request::segment(1);
+
+        $page = Page::where('key', $pageKey)->firstOrFail();
+
+        return Inertia::render('Contact', [
+            'page' => $page
+        ]);
+    }
+
+    public function returnGenericPage()
+    {
+        $pageKey = Request::segment(1);
+
+        $page = Page::where('key', $pageKey)->firstOrFail();
+
+        return Inertia::render(ucfirst($pageKey), [
+            'page' => $page
+        ]);
     }
 }

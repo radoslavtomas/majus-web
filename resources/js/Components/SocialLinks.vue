@@ -1,19 +1,24 @@
 <script setup>
+import { computed, onMounted } from 'vue'
+import { usePage } from '@inertiajs/vue3'
 
+const user = computed(() => usePage().props.user)
+
+onMounted(() => {
+    console.log(user)
+})
 </script>
 
 <template>
-    <a href="https://scholar.google.com/citations?user=V7aVzF0AAAAJ&hl=sk&oi=ao" class="mx-3 text-gray-700 hover:text-gray-800"><i class="flex-grow fab fa-lg fa-fw fa-google"></i></a>
-
-
-    <a href="https://www.researchgate.net/profile/Maria_Zuffova2" class="mx-3 text-gray-700 hover:text-gray-800"><i class="flex-grow fab fa-lg fa-fw fa-researchgate"></i></a>
-
-
-
-    <a href="https://twitter.com/mariazuffova" class="mx-3 text-gray-700 hover:text-gray-800"><i class="flex-grow fab fa-lg fa-fw fa-twitter"></i></a>
-
-
-    <a href="mailto:maria.zuffova@eui.eu" class="mx-3 text-gray-700 hover:text-gray-800"><i class="flex-grow fa fa-lg fa-fw fa-envelope"></i></a>
+    <div>
+        <a v-for="link in user.socials"
+           key="link.key"
+           target="_blank"
+           :href="link.link"
+           class="mx-3 text-gray-700 hover:text-gray-800">
+                <i :class="`flex-grow fa-lg ${link['fa-icon']}`"></i>
+        </a>
+    </div>
 </template>
 
 <style scoped>
